@@ -1,0 +1,53 @@
+@use "../foundation/base" as b;
+
+.breadcrumb {
+  padding-top: 20px;
+  padding-left: 20px;
+
+  ol {
+    list-style-type: none;
+  }
+
+  @include b.overTab {
+    padding-left: 60px;
+  }
+
+  .breadcrumb-list {
+    display: flex;
+    font-size: 16px;
+
+    @include b.overTab {
+      font-size: 20px;
+    }
+  }
+
+  /* 「ホーム>ブログ>ブログタイトル」を作成 */
+  // ===========================
+  .breadcrumb-item {
+    color: b.cl(white);
+
+    +.breadcrumb-item {
+      position: relative;
+      padding-left: 14px;
+
+      &::before {
+        position: absolute;
+        content: ">";
+        color: b.cl(white);
+        font-size: 20px;
+        left: 2px;
+        line-height: 1; // 行ボックスの高さ[単位なし]
+
+        @include b.overTab {
+          top: 5px;
+        }
+      }
+    }
+
+    a {
+      color: b.cl(white);
+      text-decoration: underline;
+      display: block;
+    }
+  }
+}

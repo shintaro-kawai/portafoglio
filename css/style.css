@@ -1,0 +1,71 @@
+@charset "UTF-8";
+.est-btn {
+  border-radius: 5px;
+  background-color: lightblue;
+  padding: 10px;
+  text-decoration: none;
+  color: white;
+}
+
+@media print, screen and (min-width: 768px) {
+  ._sp {
+    display: none;
+  }
+}
+
+._pc {
+  display: none;
+}
+@media print, screen and (min-width: 768px) {
+  ._pc {
+    display: block;
+  }
+}
+
+.breadcrumb {
+  padding-top: 20px;
+  padding-left: 20px;
+  /* 「ホーム>ブログ>ブログタイトル」を作成 */
+}
+.breadcrumb ol {
+  list-style-type: none;
+}
+@media print, screen and (min-width: 768px) {
+  .breadcrumb {
+    padding-left: 60px;
+  }
+}
+.breadcrumb .breadcrumb-list {
+  display: flex;
+  font-size: 16px;
+}
+@media print, screen and (min-width: 768px) {
+  .breadcrumb .breadcrumb-list {
+    font-size: 20px;
+  }
+}
+.breadcrumb .breadcrumb-item {
+  color: #fff;
+}
+.breadcrumb .breadcrumb-item + .breadcrumb-item {
+  position: relative;
+  padding-left: 14px;
+}
+.breadcrumb .breadcrumb-item + .breadcrumb-item::before {
+  position: absolute;
+  content: ">";
+  color: #fff;
+  font-size: 20px;
+  left: 2px;
+  line-height: 1;
+}
+@media print, screen and (min-width: 768px) {
+  .breadcrumb .breadcrumb-item + .breadcrumb-item::before {
+    top: 5px;
+  }
+}
+.breadcrumb .breadcrumb-item a {
+  color: #fff;
+  text-decoration: underline;
+  display: block;
+}/*# sourceMappingURL=style.css.map */

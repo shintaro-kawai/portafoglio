@@ -1,0 +1,23 @@
+{
+  "name": "portafoglio",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shintaro-kawai/portafoglio.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shintaro-kawai/portafoglio/issues"
+  },
+  "homepage": "https://github.com/shintaro-kawai/portafoglio#readme",
+  "devDependencies": {
+    "sass": "^1.54.5"
+  }
+}
