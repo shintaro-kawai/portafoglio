@@ -7,14 +7,23 @@ $colors: (
   black: #000,
   text: #333333,
   grey: #6E6E6E,
+  bluegrey: #B9C3C9,
+  greengrey: #B9C2BB,
+  purplegrey: #B8B6C1,
+  orangegrey: #C8BCB5,
   lightgrey: #F2F2F2,
   b-grey: #bcbcbc,
-  red: #FF0000,
-  primary: #4D0000,
-  gold: #B8860BEA,
   beige: #FFFFDD,
   shadow: #666,
   border: #09000d,
+  yellow: #FFF33F,
+  bluegreen: #30A3B3,
+  heavypink: #CC6B9C,
+  red: #FF0000,
+  matcha: #899D25,
+  orange: #FF4C18,
+  primary: #4D0000,
+  gold: #B8860BEA,
   navy: #0a467d,
   sky: #00ACED,
   blue: #030F55,
@@ -26,10 +35,9 @@ $colors: (
 }
 
 // FONT
-// @include b.TimesNewRoman
 // -------------------------
-@mixin TimesNewRoman {
-  font-family: "Times New Roman", "YuMincho", "Hiragino Mincho ProN", "Yu Mincho", "MS PMincho", serif;
+@mixin Helvetica {
+  font-family: "Helvetica", "HiraKakuProN-W3", "ヒラギノ角ゴ ProN W3", sans-serif;
 }
 
 // RESPONSIVE

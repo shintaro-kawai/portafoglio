@@ -1,7 +1,174 @@
-.est-btn {
-    border-radius: 5px;
-    background-color: lightblue;
-    padding: 10px;
-    text-decoration: none;
-    color: white;
+@use "../foundation/base" as b;
+
+.header {
+
+  .header-fixed {
+    background-color: b.cl(bluegrey);
+    display: flex;
+    align-items: center; // アイテムを中央付近にまとめる
+    justify-content: space-between; // 各アイテムを均等配置
+    position: fixed; // スクロールしてもその場に固定
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    padding-top: 15px;
+    padding-bottom: 5px;
+    z-index: 2;
+  }
+
+  .header-logo {
+    width: 150px;
+    margin-left: 30px;
+  }
+
+  /* 三本線(ハンバーガーメニュー) */
+  .nav-btn {
+    width: 52px;
+    height: 32px;
+    appearance: none; // OS由来のスタイル
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    font: inherit; // プロパティの値にinheritを使うと強制的に継承させる
+    outline: none; // 輪郭線
+    position: absolute;
+    right: 30px;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+
+    @include b.overTab {
+      display: none; // 要素を画面から消す
+    }
+
+    /* 親要素(.nav-btn)がクリックされた時(active) */
+    &.-active {
+      span {
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        transition: transform 0.3s ease-in-out; // 0.3s イージング
+
+        &:first-child {
+          transform: rotate(45deg);
+        }
+
+        &:nth-child(2) {
+          transform: rotate(45deg);
+        }
+
+        &:last-child {
+          transform: rotate(-45deg);
+        }
+      }
+    }
+
+    span {
+      position: absolute;
+      width: 100%;
+      height: 3px;
+      background-color: b.cl(orange);
+      display: block;
+      transition: transform 0.3s ease-in-out;
+      right: 0;
+
+      &:first-child {
+        top: 0;
+      }
+
+      &:nth-child(2) {
+        top: 0;
+        bottom: 0;
+        margin: auto;
+      }
+
+      &:last-child {
+        bottom: 0;
+      }
+    }
+  }
+
+  /* ナビゲーションメニュー*/
+  .nav {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    background-color: b.cl(orange);
+    padding-top: 145px;
+    z-index: 1;
+    opacity: 0; // 最初は透明
+    visibility: hidden;
+    transition: opacity 0.3s ease-in-out; // fadeInOutでイージング
+
+    @include b.overTab {
+      /* PCサイズの場合は常に表示 */
+      width: initial; // 初期値(既定値)
+      background-color: transparent; // 背景を無効(透明)
+      padding-top: 0;
+      z-index: 3;
+      left: inherit; // 親要素から継承
+      right: 0;
+      top: 38px;
+      opacity: 1;
+      visibility: visible;
+    }
+
+    &.-active {
+      /* スマホサイズでクリックされた時 */
+      opacity: 1; // 不透明 
+      visibility: visible; // 要素を表示 
+      transition: opacity 0.3s ease-in-out;
+      background-color: rgba(255, 244, 98, 0.7);
+      font-weight: bolder;
+    }
+  }
+
+  /* <li>の黒ポチを消す */
+  .nav-wrap {
+    ul {
+      list-style-type: none;
+    }
+  }
+
+  .nav-list {
+    text-align: center;
+    padding-bottom: 45px;
+
+    @include b.overTab {
+      display: flex;
+      margin-right: 40px;
+      padding-bottom: 0;
+    }
+
+    .nav-item {
+      +.nav-item {
+        margin-top: 20px;
+
+        @include b.overTab {
+          margin-top: 0;
+          margin-left: 20px;
+        }
+      }
+    }
+
+    a {
+      color: b.cl(text);
+      font-size: 24px;
+
+      @include b.overTab {
+        font-size: 18px;
+      }
+    }
+
+    #est-item {
+      @include b.overTab {
+        background-color: b.cl(yellow);
+        border-radius: 8px;
+      }
+    }
+
+  }
+
+
 }

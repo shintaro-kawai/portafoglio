@@ -1,7 +1,9 @@
 // Google Fonts
-WebFont.load({ google: { families: ["Sen:regular,700,800:latin,latin-ext"] } });
+// ===================
+// WebFont.load({ google: { families: ["Sen:regular,700,800:latin,latin-ext"] } });
 
 // スマホの画面サイズ取得
+// =====================
 const sp_size = document.write("screen.width " + screen.width + "、" + "screen.height " + screen.height);
 console.log(sp_size);
 
@@ -39,6 +41,7 @@ $(function () {
 // =====================
 $(function () {
   $('#nav-btn').on('click', function () {
+    console.log("loaded");
     $(this).toggleClass('-active');
     $('#nav').toggleClass('-active');
   });
@@ -80,4 +83,37 @@ $(function () {
       }
     });
   });
+});
+
+/* アニメーション：対象位置までスクロールしたらfadeInRight
+   ================================================= */
+/* box部分が.waypoint()を呼び出す要素 */
+$(".animated").waypoint({
+  handler(direction) {
+    /* 要素が画面中央に来るとここが実行される */
+    let activePoint = $(this.element);
+    if (direction === "down") {
+      /*
+        下方向のスクロール
+        イベント発生元の要素にfadeInUpクラスを付けることで
+        アニメーションを開始
+        this.elementはanimatedクラスを持つ要素のうち、画面中央に来た要素 
+      */
+      activePoint.addClass("fadeInRight").removeClass("fadeOut");
+      /* 
+      既存のwaypointを削除
+      waypointを削除することでこれ以降handlerが呼ばれなくなる
+      ここでは最初の1回だけhandlerが実行されればよいので、this.destroy()でwaypointを削除
+      this.destroy(); 
+      */
+    } else if (direction === "up") {
+      activePoint.addClass("fadeOut").removeClass("fadeInRight")
+    }
+  },
+  /* 
+  画面の一番下に来たらhandlerを実行
+  要素の上端が画面のどの位置に来たときにhandlerメソッドを呼び出すか指定
+  0%なら画面の一番上、50% なら画面の中央，100%なら画面の一番下に来たときに呼び出される 
+  */
+  offset: "50%",
 });
