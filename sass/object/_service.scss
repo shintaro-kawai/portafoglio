@@ -1,0 +1,16 @@
+@use "../foundation/base" as b;
+
+.service {
+  color: b.cl(white);
+
+  .inner {}
+
+  // self-introduction2からfadeInLeftを拝借
+  // =====================================
+  .service-cont {
+    .service-item {
+      display: flex;
+    }
+
+  }
+}

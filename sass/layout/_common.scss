@@ -1,0 +1,59 @@
+@use "../foundation/base" as b;
+
+/* "cmn": common 
+=======================*/
+
+.cmn-section {
+  padding-top: 40px;
+
+  &.-white {
+    background-color: b.cl(white);
+  }
+
+  &.-bluegrey {
+    background-color: b.cl(bluegrey);
+  }
+}
+
+.cmn-title {
+  text-align: center;
+  color: b.cl(white);
+
+  .main {
+    display: block;
+    font-size: 32px;
+  }
+
+  .sub {
+    display: block;
+    font-size: 20px;
+    margin-top: 20px;
+    @include b.Helvetica;
+    text-transform: capitalize;
+    margin-top: 34px;
+
+    @include b.overTab {
+      margin-top: 50px;
+    }
+
+    &.-faq {
+      text-transform: uppercase; // 全て大文字
+    }
+
+  }
+}
+
+/* "〇〇の詳細"ボタン
+============================== */
+.cmn-btn {
+
+  a,
+  input {
+    display: inline-block;
+    padding: 12px 36px;
+    background-color: b.cl(gold);
+    color: b.cl(white);
+    font-size: 14px;
+    border-radius: 8px;
+  }
+}

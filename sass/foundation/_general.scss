@@ -1,0 +1,22 @@
+@use "../foundation/base" as b;
+
+body {
+  font-size: 16px;
+  line-height: 1.5; // 行ボックスの高さ
+  font-family: "ヒラギノ角ゴ ProN W3", sans-serif;
+  color: b.cl(black);
+}
+
+a {
+  color: b.cl(black);
+  text-decoration: none;
+}
+
+img {
+  width: 100%;
+  height: auto;
+}
+
+main {
+  background-color: b.cl(white);
+}

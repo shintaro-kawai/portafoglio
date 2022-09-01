@@ -1,0 +1,92 @@
+@use "../foundation/base" as b;
+
+.concept {
+  padding-top: 80px;
+
+  .inner {}
+
+  /* スクロールしていくとフェードインするアニメーション
+    --------------------------------------------- */
+  // 最初は完全透明にしておく
+  .fadein {
+    opacity: 0;
+    // 予め下方向に50pxずらしておく
+    transform: translate(0, 50px);
+    // アニメーション時間:「ふわっと具合」の調整
+    transition: all 1.5s ease;
+  }
+
+  // スクロールで要素が見えたら透明度1にして表示
+  .fadein.scrollin {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+
+  // -----------------------------------------
+
+  .concept-cont {
+    padding-top: 60px;
+  }
+
+  .concept-list {}
+
+  .concept-item {
+    color: b.cl(white);
+    display: flex;
+    flex-flow: row; // 左から右へ横並び
+
+    .image {
+      @include b.overTab {
+        width: percentage(640/1280);
+        // aspect-ratio: ; 
+      }
+    }
+
+    .text {
+      padding-left: 28px;
+      padding-right: 28px;
+      padding-top: 40px;
+
+      @include b.overTab {
+        flex: 1; // フレックス主軸方向の伸長係数(1はデフォルト)
+        padding-right: 0;
+        padding-left: 0;
+      }
+    }
+
+    @include b.overTab {
+
+      .image,
+      .text {
+        margin-right: 40px;
+        margin-left: 40px;
+      }
+    }
+
+    +.concept-item {
+      padding-top: 60px;
+
+      @include b.overTab {
+        padding-top: 0;
+      }
+    }
+
+    .title {
+      color: b.cl(beige);
+      font-size: 18px;
+
+      @include b.overTab {
+        font-size: 28px;
+      }
+    }
+
+    .desc {
+      margin-top: 50px;
+      font-size: 16px;
+
+      @include b.overTab {
+        font-size: 18px;
+      }
+    }
+  }
+}

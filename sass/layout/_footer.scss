@@ -1,0 +1,56 @@
+@use "../foundation/base" as b;
+
+.footer {
+  // background-color: b.cl(yellow);
+  padding-top: 60px;
+  padding-bottom: 15px;
+  border-top: 1px solid b.cl(yellow);
+
+  inner {}
+
+  // 黒ポチを消す
+  .nav-wrap {
+    ul {
+      list-style-type: none;
+    }
+  }
+
+  .nav-list {
+    text-align: center;
+
+    @include b.overTab {
+      display: flex;
+      justify-content: center;
+    }
+  }
+
+  .nav-item {
+    +.nav-item {
+      margin-top: 20px;
+
+      @include b.overTab {
+        margin-left: 35px;
+        margin-top: 0;
+      }
+    }
+
+    a {
+      font-size: 16px;
+      color: b.cl(black);
+    }
+  }
+
+  .footer-logo {
+    width: 188px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 60px;
+  }
+
+  .copyright {
+    padding-top: 20px;
+    color: b.cl(black);
+    font-size: 16px;
+    text-align: center;
+  }
+}
