@@ -6,7 +6,7 @@
   .inner {}
 
   /* スクロールしていくとフェードインするアニメーション
-    --------------------------------------------- */
+  --------------------------------------------- */
   // 最初は完全透明にしておく
   .fadein {
     opacity: 0;
@@ -22,7 +22,7 @@
     transform: translate(0, 0);
   }
 
-  // -----------------------------------------
+  /* ----------------------------------------- */
 
   .concept-cont {
     padding-top: 60px;
@@ -31,7 +31,7 @@
   .concept-list {}
 
   .concept-item {
-    color: b.cl(white);
+    color: b.cl(black);
     display: flex;
     flex-flow: row; // 左から右へ横並び
 
@@ -48,7 +48,7 @@
       padding-top: 40px;
 
       @include b.overTab {
-        flex: 1; // フレックス主軸方向の伸長係数(1はデフォルト)
+        flex: 1;
         padding-right: 0;
         padding-left: 0;
       }
@@ -72,7 +72,7 @@
     }
 
     .title {
-      color: b.cl(beige);
+      color: b.cl(black);
       font-size: 18px;
 
       @include b.overTab {

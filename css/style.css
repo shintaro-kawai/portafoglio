@@ -1,4 +1,11 @@
 @charset "UTF-8";
+/* COLORS
+ @include b.cl(white);
+ 色名の頭文字を大文字にするとエラー
+ ----------------------------- */
+/* FONT
+ @include b.Helvetica
+ ------------------------- */
 @media print, screen and (min-width: 768px) {
   ._sp {
     display: none;
@@ -12,6 +19,54 @@
   ._pc {
     display: block;
   }
+}
+
+.breadcrumb {
+  padding-top: 20px;
+  padding-left: 20px;
+  /* 「ホーム>ブログ>ブログタイトル」を作成 */
+}
+.breadcrumb ol {
+  list-style-type: none;
+}
+@media print, screen and (min-width: 768px) {
+  .breadcrumb {
+    padding-left: 60px;
+  }
+}
+.breadcrumb .breadcrumb-list {
+  display: flex;
+  font-size: 16px;
+}
+@media print, screen and (min-width: 768px) {
+  .breadcrumb .breadcrumb-list {
+    font-size: 20px;
+  }
+}
+.breadcrumb .breadcrumb-item {
+  color: #fff;
+}
+.breadcrumb .breadcrumb-item + .breadcrumb-item {
+  position: relative;
+  padding-left: 14px;
+}
+.breadcrumb .breadcrumb-item + .breadcrumb-item::before {
+  position: absolute;
+  content: ">";
+  color: #fff;
+  font-size: 20px;
+  left: 2px;
+  line-height: 1;
+}
+@media print, screen and (min-width: 768px) {
+  .breadcrumb .breadcrumb-item + .breadcrumb-item::before {
+    top: 5px;
+  }
+}
+.breadcrumb .breadcrumb-item a {
+  color: #fff;
+  text-decoration: underline;
+  display: block;
 }
 
 .header {
@@ -30,11 +85,12 @@
   width: 100%;
   padding-top: 15px;
   padding-bottom: 5px;
-  z-index: 2;
+  z-index: 4;
 }
 .header .header-logo {
   width: 150px;
   margin-left: 30px;
+  z-index: 4;
 }
 .header .nav-btn {
   width: 52px;
@@ -52,6 +108,7 @@
   top: 0;
   bottom: 0;
   margin: auto;
+  z-index: 3;
   /* 親要素(.nav-btn)がクリックされた時(active) */
 }
 @media print, screen and (min-width: 768px) {
@@ -99,9 +156,9 @@
   left: 0;
   top: 0;
   width: 100%;
-  background-color: #FF4C18;
+  background-color: #F2F2F2;
   padding-top: 145px;
-  z-index: 1;
+  z-index: 3;
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.3s ease-in-out;
@@ -112,7 +169,7 @@
     width: initial;
     background-color: transparent;
     padding-top: 0;
-    z-index: 3;
+    z-index: 5;
     left: inherit;
     right: 0;
     top: 38px;
@@ -125,21 +182,21 @@
   opacity: 1;
   visibility: visible;
   transition: opacity 0.3s ease-in-out;
-  background-color: rgba(255, 244, 98, 0.7);
   font-weight: bolder;
 }
 .header .nav-wrap ul {
   list-style-type: none;
 }
 .header .nav-list {
-  text-align: center;
+  text-align: left;
   padding-bottom: 45px;
 }
 @media print, screen and (min-width: 768px) {
   .header .nav-list {
-    display: flex;
     margin-right: 40px;
     padding-bottom: 0;
+    display: flex;
+    justify-content: space-between;
   }
 }
 .header .nav-list .nav-item + .nav-item {
@@ -162,7 +219,7 @@
 }
 @media print, screen and (min-width: 768px) {
   .header .nav-list #est-item {
-    background-color: #FFF33F;
+    background-color: none;
     border-radius: 8px;
   }
 }
@@ -221,10 +278,13 @@
 .cmn-section.-bluegrey {
   background-color: #B9C3C9;
 }
+.cmn-section.-black {
+  background-color: #000;
+}
 
 .cmn-title {
   text-align: center;
-  color: #fff;
+  color: #000;
 }
 .cmn-title .main {
   display: block;
@@ -280,6 +340,219 @@ main {
   background-color: #fff;
 }
 
+.concept {
+  padding-top: 80px;
+  /* スクロールしていくとフェードインするアニメーション
+  --------------------------------------------- */
+  /* ----------------------------------------- */
+}
+.concept .fadein {
+  opacity: 0;
+  transform: translate(0, 50px);
+  transition: all 1.5s ease;
+}
+.concept .fadein.scrollin {
+  opacity: 1;
+  transform: translate(0, 0);
+}
+.concept .concept-cont {
+  padding-top: 60px;
+}
+.concept .concept-item {
+  color: #000;
+  display: flex;
+  flex-flow: row;
+}
+@media print, screen and (min-width: 768px) {
+  .concept .concept-item .image {
+    width: 50%;
+  }
+}
+.concept .concept-item .text {
+  padding-left: 28px;
+  padding-right: 28px;
+  padding-top: 40px;
+}
+@media print, screen and (min-width: 768px) {
+  .concept .concept-item .text {
+    flex: 1;
+    padding-right: 0;
+    padding-left: 0;
+  }
+}
+@media print, screen and (min-width: 768px) {
+  .concept .concept-item .image,
+.concept .concept-item .text {
+    margin-right: 40px;
+    margin-left: 40px;
+  }
+}
+.concept .concept-item + .concept-item {
+  padding-top: 60px;
+}
+@media print, screen and (min-width: 768px) {
+  .concept .concept-item + .concept-item {
+    padding-top: 0;
+  }
+}
+.concept .concept-item .title {
+  color: #000;
+  font-size: 18px;
+}
+@media print, screen and (min-width: 768px) {
+  .concept .concept-item .title {
+    font-size: 28px;
+  }
+}
+.concept .concept-item .desc {
+  margin-top: 50px;
+  font-size: 16px;
+}
+@media print, screen and (min-width: 768px) {
+  .concept .concept-item .desc {
+    font-size: 18px;
+  }
+}
+
+.contact {
+  background-color: #FFF33F;
+  margin-top: 0;
+}
+.contact .contact-wrap {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  max-width: 1920px;
+  margin-top: 0;
+  margin-right: auto;
+  margin-left: auto;
+  padding: 20px 40px;
+}
+.contact .contact-wrap h1,
+.contact .contact-wrap p {
+  text-align: center;
+}
+
+.flow {
+  margin-bottom: 0px;
+  border: 1px solid #000;
+}
+.flow .flow-wrapper {
+  width: 100%;
+  height: 100%;
+  max-width: 1920px;
+  margin-right: auto;
+  margin-left: auto;
+}
+.flow .flow-wrapper .flow-cont {
+  padding-left: 20px;
+  margin-left: 20px;
+  padding-right: auto;
+  margin-right: auto;
+  margin-bottom: 60px;
+}
+.flow .flow-wrapper h2 {
+  color: #fff !important;
+}
+.flow .flow-wrapper .flow-grid {
+  display: grid;
+  row-gap: 20px;
+  grid-template-columns: 1fr;
+}
+@media print, screen and (min-width: 768px) {
+  .flow .flow-wrapper .flow-grid {
+    margin-top: 40px;
+    -moz-column-gap: 24px;
+         column-gap: 24px;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: auto;
+  }
+}
+.flow .flow-wrapper .flow-item {
+  padding-right: 0;
+  z-index: 2;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+@media print, screen and (min-width: 768px) {
+  .flow .flow-wrapper .flow-item {
+    padding-right: 48px;
+    margin-top: 40px;
+    margin-bottom: 80px;
+  }
+}
+.flow .flow-wrapper .animated {
+  opacity: 0;
+}
+.flow .flow-wrapper .number {
+  display: block;
+  margin-bottom: 8px;
+  color: #8491a0;
+  font-size: 48px;
+  line-height: 100%;
+  font-weight: 500;
+}
+.flow .flow-wrapper .flow-h3 {
+  margin-top: 0px;
+  margin-bottom: 16px;
+  color: #fff;
+  font-size: 48px;
+  line-height: 120%;
+  font-weight: 700;
+}
+@media print, screen and (min-width: 768px) {
+  .flow .flow-wrapper .flow-h3 {
+    font-size: 32px;
+  }
+}
+.flow .flow-wrapper .flow-paragraph {
+  margin-bottom: 0;
+  color: #fff;
+  font-size: 16px;
+  line-height: 150%;
+  text-decoration: none;
+}
+.flow .flow-wrapper #flow-1 {
+  -webkit-animation-delay: 0s;
+          animation-delay: 0s;
+}
+.flow .flow-wrapper #flow-2 {
+  -webkit-animation-delay: 0.2s;
+          animation-delay: 0.2s;
+}
+.flow .flow-wrapper #flow-3 {
+  -webkit-animation-delay: 0.4s;
+          animation-delay: 0.4s;
+}
+.flow .flow-wrapper #flow-4 {
+  -webkit-animation-delay: 0.6s;
+          animation-delay: 0.6s;
+}
+.flow .flow-wrapper .green {
+  color: #3cc74e;
+}
+.flow .flow-wrapper .blue {
+  color: #609bff;
+}
+.flow .flow-wrapper .pink {
+  color: #e95d90;
+}
+.flow .flow-wrapper .gold {
+  color: rgba(184, 134, 11, 0.9176470588);
+}
+
+.service {
+  color: #000;
+}
+.service .service-cont .service-list {
+  list-style-type: none;
+  display: flex;
+  flex-flow: column;
+}
+.service .service-cont .service-item + .service-item {
+  padding-top: 30px;
+}
+
 .top {
   position: relative;
   height: 600px;
@@ -290,7 +563,7 @@ main {
   /* fixedだとスクロールしてもその場所に固定されてしまう
      aboluteにしてそのdiv内の絶対位置にする */
   position: absolute;
-  z-index: -1;
+  z-index: 1;
   top: 0;
   right: 0;
   left: 0;
@@ -301,7 +574,7 @@ main {
 #video {
   /* 天地中央配置 */
   position: absolute;
-  z-index: -1;
+  z-index: 1;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -318,6 +591,7 @@ main {
   position: absolute;
   width: 100%;
   text-align: center;
+  z-index: 2;
   /* 要素を天地中央寄せ */
   top: 50%;
   left: 50%;
@@ -343,50 +617,240 @@ main {
   }
 }
 
-.breadcrumb {
-  padding-top: 20px;
-  padding-left: 20px;
-  /* 「ホーム>ブログ>ブログタイトル」を作成 */
+.works {
+  padding-top: 80px;
 }
-.breadcrumb ol {
-  list-style-type: none;
+.masterpiece {
+  padding-top: 60px;
+  /* ===============
+   customer FB
+   =============== */
 }
-@media print, screen and (min-width: 768px) {
-  .breadcrumb {
-    padding-left: 60px;
-  }
+.masterpiece .mas-list {
+  margin: 20px 0;
+  padding: 10px 0;
 }
-.breadcrumb .breadcrumb-list {
-  display: flex;
-  font-size: 16px;
-}
-@media print, screen and (min-width: 768px) {
-  .breadcrumb .breadcrumb-list {
-    font-size: 20px;
-  }
-}
-.breadcrumb .breadcrumb-item {
-  color: #fff;
-}
-.breadcrumb .breadcrumb-item + .breadcrumb-item {
+.masterpiece .mas-slick .slick-slide {
   position: relative;
-  padding-left: 14px;
-}
-.breadcrumb .breadcrumb-item + .breadcrumb-item::before {
-  position: absolute;
-  content: ">";
-  color: #fff;
-  font-size: 20px;
-  left: 2px;
-  line-height: 1;
+  margin-right: 30px;
+  margin-left: 30px;
+  overflow: visible;
+  transform: scale(0.9);
+  height: auto;
 }
 @media print, screen and (min-width: 768px) {
-  .breadcrumb .breadcrumb-item + .breadcrumb-item::before {
-    top: 5px;
+  .masterpiece .mas-slick .slick-slide {
+    padding: 10px 0;
+    margin-left: 10px;
+    margin-right: 10px;
+    width: 322px;
+    height: 30vw;
   }
 }
-.breadcrumb .breadcrumb-item a {
-  color: #fff;
-  text-decoration: underline;
+.masterpiece .mas-slick .slick-slide.slick-current {
+  transform: scale(1);
+  transition: all 0.8s ease 0.4s;
+}
+.masterpiece .mas-slick .slick-slide .slide-img {
+  z-index: 3;
+  transition: all 0.8s ease 0.4s;
+  opacity: 0.8;
+  box-shadow: 7px 7px 15px -5px #666;
+  overflow: hidden;
+}
+.masterpiece .mas-slick .slick-slide.slick-current .mas-item {
+  transform: scale(1);
+  transition: all 0.8s ease 0.4s;
+  opacity: 1;
+  overflow: visible;
+}
+.masterpiece .mas-slick .slick-slide .slide-img img {
   display: block;
-}/*# sourceMappingURL=style.css.map */
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.masterpiece .mas-slick .slick-arrow {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: #fff;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  font-size: 0;
+  position: absolute;
+  top: 50%;
+  z-index: 1;
+  transform: translateY(-50%);
+  filter: drop-shadow(0px 3px 6px rgba(0, 0, 0, 0.16));
+}
+.masterpiece .mas-slick .slick-arrow::before {
+  content: "";
+  display: block;
+  width: 12px;
+  height: 12px;
+  border: 1px solid #09000d;
+  border-width: 3px 3px 0 0;
+  position: absolute;
+  top: 24px;
+  transform: rotate(45deg);
+}
+.masterpiece .mas-slick .slick-next {
+  right: 0%;
+}
+.masterpiece .mas-slick .slick-prev {
+  left: 0%;
+}
+.masterpiece .mas-slick .slick-next::before {
+  left: 20px;
+}
+.masterpiece .mas-slick .slick-prev::before {
+  border-width: 0 0 3px 3px;
+  right: 22px;
+}
+.masterpiece .master-dots .slick-dots {
+  text-align: center;
+  bottom: -26px;
+}
+.masterpiece .master-dots .slick-dots li {
+  display: inline-block;
+  width: 40px;
+}
+.masterpiece .master-dots .slick-dots button {
+  display: block;
+  width: 10px;
+  height: 10px;
+  margin: 6px;
+  font-size: 0;
+  padding: 0;
+  border: 0;
+  outline: none;
+  cursor: pointer;
+  background: #B9C3C9;
+  border-radius: 50%;
+}
+.masterpiece .master-dots .slick-dots .slick-active button {
+  background: #0a467d;
+}
+.masterpiece .mas-item {
+  display: flex;
+  flex-flow: column-reverse;
+  border-radius: 8px;
+  overflow: visible;
+  margin-right: 30px;
+  margin-left: 30px;
+  z-index: 3;
+}
+@media print, screen and (min-width: 768px) {
+  .masterpiece .mas-item {
+    margin-left: 10px;
+    margin-right: 10px;
+    width: 322px;
+    height: 407px;
+  }
+}
+.masterpiece .mas-item .slide-img {
+  max-width: 50%;
+  height: auto;
+}
+.masterpiece .mas-item .text {
+  background-color: #fff;
+  padding: 20px 20px 50px 20px;
+  border-radius: 0 0 8px 8px;
+}
+.masterpiece .mas-item .title {
+  color: #333333;
+}
+.masterpiece .mas-item .price {
+  padding-top: 40px;
+  color: #333333;
+}
+.masterpiece .mas-item .price > span {
+  color: #FF0000;
+}
+.masterpiece .cust-wrap {
+  padding-top: 40px;
+}
+.masterpiece .cust-list .cust-item {
+  color: #000;
+  display: flex;
+  flex-flow: column-reverse;
+}
+.masterpiece .cust-list .cust-item + .cust-item {
+  padding-top: 60px;
+}
+@media print, screen and (min-width: 768px) {
+  .masterpiece .cust-list .cust-item + .cust-item {
+    padding-top: 0;
+  }
+}
+@media print, screen and (min-width: 768px) {
+  .masterpiece .cust-list .cust-item:nth-child(odd) {
+    flex-flow: row-reverse;
+  }
+}
+@media print, screen and (min-width: 768px) {
+  .masterpiece .cust-list .cust-item:nth-child(odd) .image {
+    margin-right: 40px;
+  }
+}
+@media print, screen and (min-width: 768px) {
+  .masterpiece .cust-list .cust-item:nth-child(odd) .text {
+    margin-right: 40px;
+  }
+}
+@media print, screen and (min-width: 768px) {
+  .masterpiece .cust-list .cust-item:nth-child(even) {
+    flex-flow: row;
+  }
+}
+@media print, screen and (min-width: 768px) {
+  .masterpiece .cust-list .cust-item:nth-child(even) .image {
+    margin-left: 40px;
+  }
+}
+@media print, screen and (min-width: 768px) {
+  .masterpiece .cust-list .cust-item:nth-child(even) .text {
+    margin-left: 40px;
+  }
+}
+.masterpiece .cust-list .cust-item .text {
+  padding-left: 28px;
+  padding-right: 28px;
+  padding-top: 40px;
+}
+@media print, screen and (min-width: 768px) {
+  .masterpiece .cust-list .cust-item .text {
+    flex: 1;
+    padding-right: 0;
+    padding-left: 0;
+  }
+}
+.masterpiece .cust-list .cust-item .title {
+  color: #000;
+  font-size: 18px;
+}
+@media print, screen and (min-width: 768px) {
+  .masterpiece .cust-list .cust-item .title {
+    font-size: 28px;
+  }
+}
+.masterpiece .cust-list .cust-item .desc {
+  margin-top: 50px;
+  font-size: 16px;
+  color: #000;
+}
+@media print, screen and (min-width: 768px) {
+  .masterpiece .cust-list .cust-item .desc {
+    font-size: 18px;
+  }
+}
+@media print, screen and (min-width: 768px) {
+  .masterpiece .cust-list .cust-item .image {
+    width: 50%;
+  }
+}
+
+/* パスはstyle.cssから見た書き方で *//*# sourceMappingURL=style.css.map */

@@ -1,12 +1,19 @@
-@use "../sass/layout/header";
-@use "../sass/layout/footer";
-@use "../sass/layout/common";
+/* パスはstyle.cssから見た書き方で */
 
-@use "../sass/foundation/base";
-@use "../sass/foundation/form";
-@use "../sass/foundation/general";
+@use "component/breadcrumb";
+@use "component/cmn-mv";
 
-@use "../sass/object/top";
+@use "layout/header";
+@use "layout/footer";
+@use "layout/common";
 
-@use "../sass/component/breadcrumb";
-@use "../sass/component/cmn-mv";
+@use "foundation/base";
+@use "foundation/form";
+@use "foundation/general";
+
+@use "object/concept";
+@use "object/contact";
+@use "object/flow";
+@use "object/service";
+@use "object/top";
+@use "object/works";

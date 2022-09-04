@@ -1,7 +1,7 @@
-// COLORS
-// @include b.cl(white);
-// -----------------------
-
+/* COLORS
+ @include b.cl(white);
+ 色名の頭文字を大文字にするとエラー
+ ----------------------------- */
 $colors: (
   white: #fff,
   black: #000,
@@ -27,6 +27,10 @@ $colors: (
   navy: #0a467d,
   sky: #00ACED,
   blue: #030F55,
+  f-Green:#3cc74e,
+  f-Blue: #609bff,
+  f-Pink: #e95d90,
+  f-Grey: #8491a0,
   ) !default;
 
 @function cl($key) {
@@ -34,8 +38,9 @@ $colors: (
 );
 }
 
-// FONT
-// -------------------------
+/* FONT
+ @include b.Helvetica
+ ------------------------- */
 @mixin Helvetica {
   font-family: "Helvetica", "HiraKakuProN-W3", "ヒラギノ角ゴ ProN W3", sans-serif;
 }

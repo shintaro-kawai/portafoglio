@@ -10,7 +10,7 @@
   /* fixedだとスクロールしてもその場所に固定されてしまう
      aboluteにしてそのdiv内の絶対位置にする */
   position: absolute;
-  z-index: -1; // 最背面
+  z-index: 1; // 最背面
   top: 0;
   right: 0;
   left: 0;
@@ -21,7 +21,7 @@
 #video {
   /* 天地中央配置 */
   position: absolute;
-  z-index: -1;
+  z-index: 1;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -38,6 +38,7 @@
   position: absolute;
   width: 100%;
   text-align: center;
+  z-index: 2;
   /* 要素を天地中央寄せ */
   top: 50%;
   left: 50%;

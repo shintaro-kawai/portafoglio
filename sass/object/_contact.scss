@@ -1,0 +1,23 @@
+@use "../foundation/base" as b;
+
+.contact {
+  background-color: b.cl(yellow);
+  margin-top: 0;
+
+  .contact-wrap {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    max-width: 1920px;
+    margin-top: 0;
+    margin-right: auto;
+    margin-left: auto;
+    padding: 20px 40px;
+
+    h1,
+    p {
+      text-align: center;
+    }
+
+  }
+}

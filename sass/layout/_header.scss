@@ -13,12 +13,13 @@
     width: 100%;
     padding-top: 15px;
     padding-bottom: 5px;
-    z-index: 2;
+    z-index: 4;
   }
 
   .header-logo {
     width: 150px;
     margin-left: 30px;
+    z-index: 4;
   }
 
   /* 三本線(ハンバーガーメニュー) */
@@ -36,6 +37,7 @@
     top: 0;
     bottom: 0;
     margin: auto;
+    z-index: 3;
 
     @include b.overTab {
       display: none; // 要素を画面から消す
@@ -94,9 +96,9 @@
     left: 0;
     top: 0;
     width: 100%;
-    background-color: b.cl(orange);
+    background-color: b.cl(lightgrey);
     padding-top: 145px;
-    z-index: 1;
+    z-index: 3;
     opacity: 0; // 最初は透明
     visibility: hidden;
     transition: opacity 0.3s ease-in-out; // fadeInOutでイージング
@@ -106,7 +108,7 @@
       width: initial; // 初期値(既定値)
       background-color: transparent; // 背景を無効(透明)
       padding-top: 0;
-      z-index: 3;
+      z-index: 5;
       left: inherit; // 親要素から継承
       right: 0;
       top: 38px;
@@ -119,7 +121,6 @@
       opacity: 1; // 不透明 
       visibility: visible; // 要素を表示 
       transition: opacity 0.3s ease-in-out;
-      background-color: rgba(255, 244, 98, 0.7);
       font-weight: bolder;
     }
   }
@@ -132,13 +133,14 @@
   }
 
   .nav-list {
-    text-align: center;
+    text-align: left;
     padding-bottom: 45px;
 
     @include b.overTab {
-      display: flex;
       margin-right: 40px;
       padding-bottom: 0;
+      display: flex;
+      justify-content: space-between;
     }
 
     .nav-item {
@@ -163,7 +165,7 @@
 
     #est-item {
       @include b.overTab {
-        background-color: b.cl(yellow);
+        background-color: none;
         border-radius: 8px;
       }
     }

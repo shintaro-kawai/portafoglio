@@ -13,11 +13,15 @@
   &.-bluegrey {
     background-color: b.cl(bluegrey);
   }
+
+  &.-black {
+    background-color: b.cl(black);
+  }
 }
 
 .cmn-title {
   text-align: center;
-  color: b.cl(white);
+  color: b.cl(black);
 
   .main {
     display: block;

@@ -179,6 +179,9 @@
     }
   }
 
+  /* ===============
+   customer FB
+   =============== */
   .cust-wrap {
     padding-top: 40px;
   }
@@ -248,7 +251,7 @@
       }
 
       .title {
-        color: b.cl(beige);
+        color: b.cl(black);
         font-size: 18px;
 
         @include b.overTab {
@@ -259,6 +262,7 @@
       .desc {
         margin-top: 50px;
         font-size: 16px;
+        color: b.cl(black);
 
         @include b.overTab {
           font-size: 18px;

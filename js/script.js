@@ -1,24 +1,15 @@
-// Google Fonts
-// ===================
-// WebFont.load({ google: { families: ["Sen:regular,700,800:latin,latin-ext"] } });
-
-// スマホの画面サイズ取得
-// =====================
-const sp_size = document.write("screen.width " + screen.width + "、" + "screen.height " + screen.height);
-console.log(sp_size);
-
-// slick.js
-// =========================
+/* slick.js
+========================= */
 $(function () {
   $('#mas-slick').slick({
     arrows: true,           // 矢印は表示
     dots: true,             // ドット表示
     appendDots: $('.master-dots'), // ドットナビゲーションの生成位置を変更
     speed: 500,             // フェードアニメーションの速度
-    slidesToShow: 3,        // 表示するスライドの枚数
+    slidesToShow: 1,        // 表示するスライドの枚数
     centerMode: true,       // 前後のスライドを部分的に表示
     variableWidth: false,   // 一定幅以上で前後のスライドを表示するスライダー
-    slidesToScroll: 3,      // 一度にスクロールするスライドの数
+    slidesToScroll: 1,      // 一度にスクロールするスライドの数
     autoplay: true,         // 自動再生
     autoplaySpeed: 2000,    // 再生速度（ミリ秒） 
     centerPadding: '10%',   // 両端に見切れるスライド幅 
@@ -37,8 +28,8 @@ $(function () {
   });
 });
 
-// header > nav
-// =====================
+/* header > nav: ハンバーガーメニュー
+================================== */
 $(function () {
   $('#nav-btn').on('click', function () {
     console.log("loaded");
@@ -47,22 +38,22 @@ $(function () {
   });
 });
 
-// FAQ
-// =====================
+/* FAQ: アコーディオン
+===================== */
 $(function () {
   $('.js-accordion').on('click', function () {
     $(this).next().slideToggle();
   })
 });
 
-// animation / wow.js
-// =====================
+/* animated.css & WOW.js Animation 
+=================================== */
 $(function () {
   new WOW().init();
 });
 
-// スクロールしていくとコンテンツがフェードインするアニメーション
-// ====================================================
+/* スクロールしていくとコンテンツがフェードインするアニメーション
+======================================================= */
 $(function () {
   // スクロールした時にプログラムが動く
   $(window).scroll(function () {
@@ -85,8 +76,23 @@ $(function () {
   });
 });
 
-/* アニメーション：対象位置までスクロールしたらfadeInRight
-   ================================================= */
+/* waypoint.js & CSS: fadeInRight Animation 
+============================================ */
+
+let screen_width = window.innerWidth;
+console.log(screen_width);
+
+function screenWidth() {
+  let per_num = 0;
+  if (screen_width <= 768) {
+    per_num = "90%";
+  } else {
+    per_num = "50%";
+  }
+  return per_num;
+}
+const percent_num = screenWidth();
+
 /* box部分が.waypoint()を呼び出す要素 */
 $(".animated").waypoint({
   handler(direction) {
@@ -100,6 +106,7 @@ $(".animated").waypoint({
         this.elementはanimatedクラスを持つ要素のうち、画面中央に来た要素 
       */
       activePoint.addClass("fadeInRight").removeClass("fadeOut");
+      console.log("fadeInRight->fadeOut");
       /* 
       既存のwaypointを削除
       waypointを削除することでこれ以降handlerが呼ばれなくなる
@@ -108,6 +115,7 @@ $(".animated").waypoint({
       */
     } else if (direction === "up") {
       activePoint.addClass("fadeOut").removeClass("fadeInRight")
+      console.log("fadeOut->fadeInRight");
     }
   },
   /* 
@@ -115,5 +123,30 @@ $(".animated").waypoint({
   要素の上端が画面のどの位置に来たときにhandlerメソッドを呼び出すか指定
   0%なら画面の一番上、50% なら画面の中央，100%なら画面の一番下に来たときに呼び出される 
   */
-  offset: "50%",
+  offset: percent_num,
+});
+
+
+/* スムーズスクロールでページ内リンク
+================================ */
+
+// フッターで隠れないように高さ位置調整の値
+let corr_num = 170;
+
+$(function () {
+  // #で始まるアンカーをクリックした場合に処理
+  $('a[href^="#"]').click(function () {
+    console.log("Smooth Scrolling");
+    // スクロールの速度
+    let speed = 500; // ミリ秒
+    // アンカーの値取得
+    let href = $(this).attr("href");
+    // 移動先を取得
+    let target = $(href == "#" || href == "" ? 'html' : href);
+    // 移動先を数値で取得
+    let position = target.offset().top - corr_num;
+    // スムーススクロール
+    $('body,html').animate({ scrollTop: position }, speed, 'swing');
+    return false;
+  });
 });
