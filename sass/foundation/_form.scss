@@ -1,0 +1,26 @@
+@use "./base" as b;
+
+.end-message {
+  display: none;
+}
+
+.false-message {
+  display: none;
+}
+
+.form-top {
+  background-image: url(../image/laptop.jpg) !important;
+  background-position: center;
+  background-size: cover;
+  height: 400px;
+  position: relative;
+  margin-top: 100px;
+
+  @include b.overTab {
+    /* ------------------------------------------
+      url(...)の相対パスはstyle.cssから見たルートで記述
+      -> 実際にスタイルを適用するファイルはstyle.cssだから
+      ------------------------------------------ */
+    background-image: url(../image/laptop.jpg) !important;
+  }
+}

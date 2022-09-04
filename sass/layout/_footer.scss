@@ -1,12 +1,10 @@
 @use "../foundation/base" as b;
 
 .footer {
-  // background-color: b.cl(yellow);
   padding-top: 60px;
   padding-bottom: 15px;
-  border-top: 1px solid b.cl(yellow);
 
-  inner {}
+  .inner {}
 
   // 黒ポチを消す
   .nav-wrap {
