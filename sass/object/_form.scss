@@ -1,0 +1,381 @@
+/* =======================
+Contact > index.html 
+お問い合わせフォーム
+========================= */
+
+@use "../foundation/base" as b;
+
+
+main {
+  background-color: b.cl(lightgrey) !important;
+}
+
+/* Top Image 
+============== */
+.form-top {
+  background-image: url(../image/laptop.jpg) !important;
+  background-position: center;
+  background-size: cover;
+  height: 400px;
+  position: relative;
+  margin-top: 100px;
+
+  @include b.overTab {
+    /* ------------------------------------------
+      url(...)の相対パスはstyle.cssから見たルートで記述
+      -> 実際にスタイルを適用するファイルはstyle.cssだから
+      ------------------------------------------ */
+    background-image: url(../image/laptop.jpg) !important;
+  }
+}
+
+/* お問合せフォーム
+==================== */
+.form-wrapper {
+
+  .lead-form {
+    padding: 40px 40px;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 24px;
+    color: b.cl(black);
+
+    @include b.overTab {
+      font-size: 40px;
+    }
+  }
+
+  #my-form {
+    margin: 0 auto;
+    width: 500px;
+    // border: 2px solid b.cl(bluegreen); // 検証用
+
+    @include b.overTab {
+      width: 800px;
+    }
+
+    .form-item {
+      overflow: hidden;
+      display: block;
+      width: 100px;
+      margin: none; // なぜか上の余白が消える
+
+      @include b.overTab {
+        display: table-row;
+        width: 100%;
+      }
+
+      &.-short {
+        td {
+          @include b.overTab {
+            width: 100px;
+          }
+        }
+      }
+    }
+
+    table {
+      display: block;
+      margin: 0 auto;
+      // border: 2px solid b.cl(inspect-line);
+
+      @include b.overTab {
+        display: table;
+        margin-top: 0;
+        width: 100%;
+        border-spacing: 0;
+      }
+    }
+
+    tr {
+      // form-itemごとの余白調整はtrに記述
+      display: block;
+      margin-bottom: 30px;
+
+      &:first-child {
+        margin-top: 20px;
+      }
+
+      @include b.overTab {
+        display: table-row; // tr,tdを横並び
+      }
+    }
+
+    th {
+      display: block; // 
+      width: 100%;
+      padding: 5px auto 5px 20px;
+      font-weight: normal;
+      left: 5px;
+      text-align: left;
+      margin-top: 10px;
+
+      @include b.overTab {
+        display: table-cell;
+        padding: 15px;
+        border-bottom: 1px solid b.cl(border-bottom); // border-bottom
+        width: 45%; // thがつぶれる場合はここを調整
+        vertical-align: middle;
+      }
+    }
+
+    td {
+      width: 100%;
+      display: block;
+      text-align: left;
+      left: 5px;
+
+      @include b.overTab {
+        display: table-cell;
+        padding: 10px;
+        border-bottom: 1px solid b.cl(border-bottom); // 
+        vertical-align: middle;
+      }
+    }
+
+    .label {
+      border-left: 3px solid b.cl(inspect-line); // -left
+      display: inline-block; //
+      // width: fit-content; 200px;
+      left: 2px;
+      padding-left: 6px;
+
+      @include b.overTab {
+        width: 300px; // 400px
+        margin-right: 20px;
+        padding-left: 10px;
+        vertical-align: middle;
+      }
+    }
+
+    .inputs {
+      width: calc(100% - 10px);
+
+      @include b.overTab {
+        width: 350px; // 入力欄の横幅
+      }
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"] {
+      border: 1px solid b.cl(border-input);
+      border-radius: 5px;
+      padding: 10px;
+      margin: 0 5px;
+      font-size: 15px;
+      box-sizing: border-box;
+    }
+
+    /* floatでblock要素を横並びにする時，他の要素が下に回り込むのを防ぐ
+    ---------------------------------------------------------- */
+    .clearfix::after {
+      content: "";
+      display: block;
+      clear: both;
+    }
+
+    .smallinput {
+      width: 70px;
+      margin-right: 5px;
+
+      @include b.overTab {
+        width: 70px;
+        vertical-align: middle;
+      }
+    }
+
+    .input-age {
+      vertical-align: middle;
+
+      @include b.overTab {
+        margin-top: 15px;
+      }
+    }
+
+    .attention {
+      display: inline-block;
+      padding-top: 8px;
+      padding-left: 5px;
+      color: b.cl(black);
+    }
+
+    textarea {
+      border: 1px solid b.cl(border-input);
+      border-radius: 5px;
+      padding: 10px;
+      margin: 0 3px;
+      height: 160px;
+      font-size: 15px;
+      box-sizing: border-box;
+    }
+
+    .btn-area {
+      text-align: center;
+      padding: 10px 5px 20px;
+    }
+
+    input[type="submit"] {
+      background: b.cl(submit);
+      border: none;
+      color: b.cl(white);
+      font-size: 17px;
+      font-weight: normal;
+      padding: 10px 20px;
+      margin: 10px 5px;
+      cursor: pointer;
+      width: 150px;
+    }
+
+    input[type="reset"] {
+      background: b.cl(grey);
+      border: none;
+      color: b.cl(white);
+      font-size: 17px;
+      font-weight: normal;
+      padding: 10px 20px;
+      margin: 10px 5px;
+      cursor: pointer;
+      width: 150px;
+    }
+
+    .hissu {
+      padding-right: 4em;
+      position: relative;
+
+      &::after {
+        content: "必須";
+        display: inline-block;
+        position: absolute;
+        border: 1px solid b.cl(border-light);
+        padding: 1px 5px;
+        font-size: 80%;
+        background: b.cl(hissu);
+        color: b.cl(white);
+        vertical-align: middle;
+        right: auto;
+        margin-left: 8px;
+
+        @include b.overTab {
+          right: 10px;
+          left: auto;
+        }
+      }
+    }
+
+    .ninni {
+      padding-right: 4em;
+      position: relative;
+
+      &::after {
+        content: "任意";
+        display: inline-block;
+        position: absolute;
+        border: 1px solid b.cl(border-light);
+        padding: 0 5px;
+        font-size: 85%;
+        background: b.cl(ninni);
+        color: b.cl(text);
+        vertical-align: middle;
+        right: auto;
+        margin-left: 8px;
+
+        @include b.overTab {
+          right: 10px;
+          left: auto;
+        }
+      }
+    }
+
+    .radio-menu {
+      >label {
+        display: block;
+        padding: 5px;
+        cursor: pointer;
+
+        &:hover {
+          color: b.cl(navy)
+        }
+
+        >input {
+          margin-right: 5px;
+          cursor: pointer;
+        }
+      }
+    }
+
+    .checkbox-menu {
+      width: 100%;
+
+      >label {
+        display: block;
+        padding: 5px;
+        cursor: pointer;
+
+        &:hover {
+          color: b.cl(navy)
+        }
+
+        >input {
+          margin-right: 5px;
+          cursor: pointer;
+        }
+      }
+    }
+
+    .question {
+      display: flex;
+      // flex-wrap: wrap; // 折り返し
+      flex-direction: column;
+      column-gap: 2px;
+      margin-top: 3px;
+      margin-bottom: 20px;
+      justify-content: center;
+
+      @include b.overTab {
+        flex-direction: row;
+        row-gap: 5px;
+      }
+
+      &>p {
+        // display: inline-block;
+        text-align: left;
+        color: b.cl(black);
+        padding: .5em;
+        margin-bottom: 3px;
+
+        @include b.overTab {
+          margin-top: 1em;
+          margin-right: auto;
+          margin-left: 10%;
+        }
+      }
+
+      #robot {
+        // display: inline-block;
+        margin-left: 2%;
+        margin-right: auto;
+        margin-top: 2px; // 
+        padding: .5em;
+        border: 1px solid b.cl(border-input);
+        border-radius: 3px;
+        background: b.cl(whitecream);
+        font-size: 1em;
+        max-width: 100%;
+        color: b.cl(input);
+        width: 30%;
+
+        @include b.overTab {
+          margin-top: 30px;
+          font-size: 15px;
+          width: 20%;
+          height: 2.5em;
+          margin-right: auto;
+          margin-left: 0;
+        }
+      }
+    }
+
+
+  }
+}

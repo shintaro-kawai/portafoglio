@@ -24,25 +24,42 @@
 
   /* ----------------------------------------- */
 
-  .concept-cont {
+  /* <ul>,<li>を取り消し 
+  => <div>に変えると左の余白が消えて中央寄せにできた */
+  .concept-list {
     padding-top: 60px;
+    // border: 2px solid b.cl(navy); // 検証用ボーダー
+    display: flex;
+    flex-direction: row; // 横並び
+    justify-content: space-between; // 左端・右端の余白なしで均等配置
+    align-items: center;
   }
-
-  .concept-list {}
 
   .concept-item {
     color: b.cl(black);
+    flex: 1;
+    // border: 2px solid b.cl(inspect-line); // 検証用ボーダー
     display: flex;
-    flex-flow: row; // 左から右へ横並び
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 
-    .image {
-      @include b.overTab {
-        width: percentage(640/1280);
-        // aspect-ratio: ; 
+    &>.fa-icon {
+      margin: 0 auto;
+
+      &>i {
+        font-size: 50px;
+        color: b.cl(f-Grey);
       }
     }
 
-    .text {
+    &>.text {
+      display: block;
+
+      &>.title {
+        text-align: center;
+      }
+
       padding-left: 28px;
       padding-right: 28px;
       padding-top: 40px;

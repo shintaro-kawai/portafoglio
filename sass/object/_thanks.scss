@@ -1,0 +1,72 @@
+/* ===========================
+Contact > thanks > index.html 
+お問い合わせフォーム
+============================== */
+
+@use "../foundation/base" as b;
+
+/* Top Image 
+============== */
+.thanks-top {
+  background-image: url(../image/laptop.jpg) !important;
+  background-position: center;
+  background-size: cover;
+  height: 400px;
+  position: relative;
+  margin-top: 100px;
+  margin-bottom: 0;
+
+  @include b.overTab {
+    /* ------------------------------------------
+      url(...)の相対パスはstyle.cssから見たルートで記述
+      -> 実際にスタイルを適用するファイルはstyle.cssだから
+      ------------------------------------------ */
+    background-image: url(../image/laptop.jpg) !important;
+  }
+}
+
+/* thanks message
+==================== */
+.thanks-message {
+  display: block;
+  width: 100%;
+  text-align: center;
+  background-color: b.cl(lightgrey);
+  margin-top: 0;
+
+  .span-thanks {
+    display: inline-block;
+    font-size: 48px;
+    color: b.cl(black);
+    text-align: center;
+    // border: 1px solid b.cl(inspect-line);
+    margin-top: 0;
+    margin-bottom: 15px;
+    padding: 50px 10% 20px;
+  }
+
+  p {
+    font-size: 32px;
+    color: b.cl(black);
+    text-align: center;
+
+    .signature {
+      font-size: 24px;
+    }
+  }
+
+  #page_top_btn {
+    display: inline-block;
+    margin: 20px auto 50px;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    text-align: center;
+    text-decoration: none;
+    background: b.cl(inspect-line);
+    color: b.cl(whitecream);
+    cursor: pointer;
+  }
+}

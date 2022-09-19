@@ -1,8 +1,9 @@
 @use "../foundation/base" as b;
 
 .contact {
-  background-color: b.cl(yellow);
-  margin-top: 0;
+  background-color: b.cl(yellow-3);
+  margin: 0;
+  // border: 2px solid b.cl(inspect-line); // 検証用
 
   .contact-wrap {
     display: inline-block;
@@ -13,10 +14,12 @@
     margin-right: auto;
     margin-left: auto;
     padding: 20px 40px;
+    vertical-align: middle;
 
     h1,
     p {
       text-align: center;
+      color: b.cl(black);
     }
 
   }

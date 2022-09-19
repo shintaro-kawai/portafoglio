@@ -2,6 +2,7 @@
 
 .works {
   padding-top: 80px;
+  border: 1px solid b.cl(white); // 検証用
 
   .inner {}
 }
@@ -184,9 +185,14 @@
    =============== */
   .cust-wrap {
     padding-top: 40px;
+    // border: 2px solid b.cl(inspect-line); // 検証用
   }
 
   .cust-list {
+    /* list-style-type: none; を適用した場合，左に余白ができる．
+    この余白を消すためにliタグの親要素にpadding-left: 0;を適用 */
+    padding-left: 0;
+
     .cust-item {
       color: b.cl(black);
       display: flex;

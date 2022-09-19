@@ -1,8 +1,11 @@
 @use "../foundation/base" as b;
 
 .flow {
-  margin-bottom: 0px;
-  border: 1px solid b.cl(black);
+  // margin-bottom: 0;
+  // margin: 0;
+  // border: 0;
+  box-sizing: content-box;
+  // border: 1px solid b.cl(white); // 検証用
 
   .flow-wrapper {
     width: 100%;
@@ -11,17 +14,16 @@
     margin-right: auto;
     margin-left: auto;
 
-
     .flow-cont {
       padding-left: 20px;
       margin-left: 20px;
       padding-right: auto;
       margin-right: auto;
-      margin-bottom: 60px;
+      margin-bottom: 0px;
     }
 
     h2 {
-      color: b.cl(white) !important;
+      color: b.cl(black);
     }
 
     .flow-grid {
@@ -58,7 +60,7 @@
     .number {
       display: block;
       margin-bottom: 8px;
-      color: b.cl(f-Grey);
+      color: b.cl(grey);
       font-size: 48px;
       line-height: 100%;
       font-weight: 500;
@@ -67,7 +69,7 @@
     .flow-h3 {
       margin-top: 0px;
       margin-bottom: 16px;
-      color: b.cl(white);
+      color: b.cl(black);
       font-size: 48px;
       line-height: 120%;
       font-weight: 700;
@@ -79,7 +81,7 @@
 
     .flow-paragraph {
       margin-bottom: 0;
-      color: b.cl(white);
+      color: b.cl(black);
       font-size: 16px;
       line-height: 150%;
       text-decoration: none;
@@ -102,19 +104,19 @@
     }
 
     .green {
-      color: b.cl(f-Green)
+      color: b.cl(gold)
     }
 
     .blue {
-      color: b.cl(f-Blue);
+      color: b.cl(twitter);
     }
 
     .pink {
-      color: b.cl(f-Pink);
+      color: b.cl(bluegreen);
     }
 
     .gold {
-      color: b.cl(gold);
+      color: b.cl(submit);
     }
   }
 

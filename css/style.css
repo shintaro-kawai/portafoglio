@@ -70,8 +70,10 @@
 }
 
 .header {
-  /* 三本線(ハンバーガーメニュー) */
-  /* ナビゲーションメニュー*/
+  /* 三本線(ハンバーガーメニュー) 
+  ============================ */
+  /* ナビゲーションメニュー
+  ======================= */
   /* <li>の黒ポチを消す */
 }
 .header .header-fixed {
@@ -135,7 +137,7 @@
   position: absolute;
   width: 100%;
   height: 3px;
-  background-color: #FF4C18;
+  background-color: #666666;
   display: block;
   transition: transform 0.3s ease-in-out;
   right: 0;
@@ -156,7 +158,7 @@
   left: 0;
   top: 0;
   width: 100%;
-  background-color: #F2F2F2;
+  background-color: rgba(242, 242, 242, 0.8);
   padding-top: 145px;
   z-index: 3;
   opacity: 0;
@@ -318,32 +320,6 @@
   border-radius: 8px;
 }
 
-.end-message {
-  display: none;
-}
-
-.false-message {
-  display: none;
-}
-
-.form-top {
-  background-image: url(../image/laptop.jpg) !important;
-  background-position: center;
-  background-size: cover;
-  height: 400px;
-  position: relative;
-  margin-top: 100px;
-}
-@media print, screen and (min-width: 768px) {
-  .form-top {
-    /* ------------------------------------------
-      url(...)の相対パスはstyle.cssから見たルートで記述
-      -> 実際にスタイルを適用するファイルはstyle.cssだから
-      ------------------------------------------ */
-    background-image: url(../image/laptop.jpg) !important;
-  }
-}
-
 body {
   font-size: 16px;
   line-height: 1.5;
@@ -370,6 +346,8 @@ main {
   /* スクロールしていくとフェードインするアニメーション
   --------------------------------------------- */
   /* ----------------------------------------- */
+  /* <ul>,<li>を取り消し 
+  => <div>に変えると左の余白が消えて中央寄せにできた */
 }
 .concept .fadein {
   opacity: 0;
@@ -380,26 +358,39 @@ main {
   opacity: 1;
   transform: translate(0, 0);
 }
-.concept .concept-cont {
+.concept .concept-list {
   padding-top: 60px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 }
 .concept .concept-item {
   color: #000;
+  flex: 1;
   display: flex;
-  flex-flow: row;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
-@media print, screen and (min-width: 768px) {
-  .concept .concept-item .image {
-    width: 50%;
-  }
+.concept .concept-item > .fa-icon {
+  margin: 0 auto;
 }
-.concept .concept-item .text {
+.concept .concept-item > .fa-icon > i {
+  font-size: 50px;
+  color: #8491a0;
+}
+.concept .concept-item > .text {
+  display: block;
   padding-left: 28px;
   padding-right: 28px;
   padding-top: 40px;
 }
+.concept .concept-item > .text > .title {
+  text-align: center;
+}
 @media print, screen and (min-width: 768px) {
-  .concept .concept-item .text {
+  .concept .concept-item > .text {
     flex: 1;
     padding-right: 0;
     padding-left: 0;
@@ -440,8 +431,8 @@ main {
 }
 
 .contact {
-  background-color: #FFF33F;
-  margin-top: 0;
+  background-color: #FCC800;
+  margin: 0;
 }
 .contact .contact-wrap {
   display: inline-block;
@@ -452,15 +443,16 @@ main {
   margin-right: auto;
   margin-left: auto;
   padding: 20px 40px;
+  vertical-align: middle;
 }
 .contact .contact-wrap h1,
 .contact .contact-wrap p {
   text-align: center;
+  color: #000;
 }
 
 .flow {
-  margin-bottom: 0px;
-  border: 1px solid #000;
+  box-sizing: content-box;
 }
 .flow .flow-wrapper {
   width: 100%;
@@ -474,10 +466,10 @@ main {
   margin-left: 20px;
   padding-right: auto;
   margin-right: auto;
-  margin-bottom: 60px;
+  margin-bottom: 0px;
 }
 .flow .flow-wrapper h2 {
-  color: #fff !important;
+  color: #000;
 }
 .flow .flow-wrapper .flow-grid {
   display: grid;
@@ -512,7 +504,7 @@ main {
 .flow .flow-wrapper .number {
   display: block;
   margin-bottom: 8px;
-  color: #8491a0;
+  color: #6E6E6E;
   font-size: 48px;
   line-height: 100%;
   font-weight: 500;
@@ -520,7 +512,7 @@ main {
 .flow .flow-wrapper .flow-h3 {
   margin-top: 0px;
   margin-bottom: 16px;
-  color: #fff;
+  color: #000;
   font-size: 48px;
   line-height: 120%;
   font-weight: 700;
@@ -532,7 +524,7 @@ main {
 }
 .flow .flow-wrapper .flow-paragraph {
   margin-bottom: 0;
-  color: #fff;
+  color: #000;
   font-size: 16px;
   line-height: 150%;
   text-decoration: none;
@@ -554,28 +546,480 @@ main {
           animation-delay: 0.6s;
 }
 .flow .flow-wrapper .green {
-  color: #3cc74e;
+  color: rgba(184, 134, 11, 0.9176470588);
 }
 .flow .flow-wrapper .blue {
-  color: #609bff;
+  color: #1da1f2;
 }
 .flow .flow-wrapper .pink {
-  color: #e95d90;
+  color: #30A3B3;
 }
 .flow .flow-wrapper .gold {
-  color: rgba(184, 134, 11, 0.9176470588);
+  color: #d13415;
+}
+
+/* =======================
+Contact > index.html 
+お問い合わせフォーム
+========================= */
+main {
+  background-color: #F2F2F2 !important;
+}
+
+/* Top Image 
+============== */
+.form-top {
+  background-image: url(../image/laptop.jpg) !important;
+  background-position: center;
+  background-size: cover;
+  height: 400px;
+  position: relative;
+  margin-top: 100px;
+}
+@media print, screen and (min-width: 768px) {
+  .form-top {
+    /* ------------------------------------------
+      url(...)の相対パスはstyle.cssから見たルートで記述
+      -> 実際にスタイルを適用するファイルはstyle.cssだから
+      ------------------------------------------ */
+    background-image: url(../image/laptop.jpg) !important;
+  }
+}
+
+/* お問合せフォーム
+==================== */
+.form-wrapper .lead-form {
+  padding: 40px 40px;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 24px;
+  color: #000;
+}
+@media print, screen and (min-width: 768px) {
+  .form-wrapper .lead-form {
+    font-size: 40px;
+  }
+}
+.form-wrapper #my-form {
+  margin: 0 auto;
+  width: 500px;
+  /* floatでblock要素を横並びにする時，他の要素が下に回り込むのを防ぐ
+  ---------------------------------------------------------- */
+}
+@media print, screen and (min-width: 768px) {
+  .form-wrapper #my-form {
+    width: 800px;
+  }
+}
+.form-wrapper #my-form .form-item {
+  overflow: hidden;
+  display: block;
+  width: 100px;
+  margin: none;
+}
+@media print, screen and (min-width: 768px) {
+  .form-wrapper #my-form .form-item {
+    display: table-row;
+    width: 100%;
+  }
+}
+@media print, screen and (min-width: 768px) {
+  .form-wrapper #my-form .form-item.-short td {
+    width: 100px;
+  }
+}
+.form-wrapper #my-form table {
+  display: block;
+  margin: 0 auto;
+}
+@media print, screen and (min-width: 768px) {
+  .form-wrapper #my-form table {
+    display: table;
+    margin-top: 0;
+    width: 100%;
+    border-spacing: 0;
+  }
+}
+.form-wrapper #my-form tr {
+  display: block;
+  margin-bottom: 30px;
+}
+.form-wrapper #my-form tr:first-child {
+  margin-top: 20px;
+}
+@media print, screen and (min-width: 768px) {
+  .form-wrapper #my-form tr {
+    display: table-row;
+  }
+}
+.form-wrapper #my-form th {
+  display: block;
+  width: 100%;
+  padding: 5px auto 5px 20px;
+  font-weight: normal;
+  left: 5px;
+  text-align: left;
+  margin-top: 10px;
+}
+@media print, screen and (min-width: 768px) {
+  .form-wrapper #my-form th {
+    display: table-cell;
+    padding: 15px;
+    border-bottom: 1px solid #EEEEEE;
+    width: 45%;
+    vertical-align: middle;
+  }
+}
+.form-wrapper #my-form td {
+  width: 100%;
+  display: block;
+  text-align: left;
+  left: 5px;
+}
+@media print, screen and (min-width: 768px) {
+  .form-wrapper #my-form td {
+    display: table-cell;
+    padding: 10px;
+    border-bottom: 1px solid #EEEEEE;
+    vertical-align: middle;
+  }
+}
+.form-wrapper #my-form .label {
+  border-left: 3px solid #e0505d;
+  display: inline-block;
+  left: 2px;
+  padding-left: 6px;
+}
+@media print, screen and (min-width: 768px) {
+  .form-wrapper #my-form .label {
+    width: 300px;
+    margin-right: 20px;
+    padding-left: 10px;
+    vertical-align: middle;
+  }
+}
+.form-wrapper #my-form .inputs {
+  width: calc(100% - 10px);
+}
+@media print, screen and (min-width: 768px) {
+  .form-wrapper #my-form .inputs {
+    width: 350px;
+  }
+}
+.form-wrapper #my-form input[type=text],
+.form-wrapper #my-form input[type=email],
+.form-wrapper #my-form input[type=tel] {
+  border: 1px solid #aaaaaa;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 0 5px;
+  font-size: 15px;
+  box-sizing: border-box;
+}
+.form-wrapper #my-form .clearfix::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+.form-wrapper #my-form .smallinput {
+  width: 70px;
+  margin-right: 5px;
+}
+@media print, screen and (min-width: 768px) {
+  .form-wrapper #my-form .smallinput {
+    width: 70px;
+    vertical-align: middle;
+  }
+}
+.form-wrapper #my-form .input-age {
+  vertical-align: middle;
+}
+@media print, screen and (min-width: 768px) {
+  .form-wrapper #my-form .input-age {
+    margin-top: 15px;
+  }
+}
+.form-wrapper #my-form .attention {
+  display: inline-block;
+  padding-top: 8px;
+  padding-left: 5px;
+  color: #000;
+}
+.form-wrapper #my-form textarea {
+  border: 1px solid #aaaaaa;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 0 3px;
+  height: 160px;
+  font-size: 15px;
+  box-sizing: border-box;
+}
+.form-wrapper #my-form .btn-area {
+  text-align: center;
+  padding: 10px 5px 20px;
+}
+.form-wrapper #my-form input[type=submit] {
+  background: #d13415;
+  border: none;
+  color: #fff;
+  font-size: 17px;
+  font-weight: normal;
+  padding: 10px 20px;
+  margin: 10px 5px;
+  cursor: pointer;
+  width: 150px;
+}
+.form-wrapper #my-form input[type=reset] {
+  background: #6E6E6E;
+  border: none;
+  color: #fff;
+  font-size: 17px;
+  font-weight: normal;
+  padding: 10px 20px;
+  margin: 10px 5px;
+  cursor: pointer;
+  width: 150px;
+}
+.form-wrapper #my-form .hissu {
+  padding-right: 4em;
+  position: relative;
+}
+.form-wrapper #my-form .hissu::after {
+  content: "必須";
+  display: inline-block;
+  position: absolute;
+  border: 1px solid #CCCCCC;
+  padding: 1px 5px;
+  font-size: 80%;
+  background: #d40000;
+  color: #fff;
+  vertical-align: middle;
+  right: auto;
+  margin-left: 8px;
+}
+@media print, screen and (min-width: 768px) {
+  .form-wrapper #my-form .hissu::after {
+    right: 10px;
+    left: auto;
+  }
+}
+.form-wrapper #my-form .ninni {
+  padding-right: 4em;
+  position: relative;
+}
+.form-wrapper #my-form .ninni::after {
+  content: "任意";
+  display: inline-block;
+  position: absolute;
+  border: 1px solid #CCCCCC;
+  padding: 0 5px;
+  font-size: 85%;
+  background: #d2e5ff;
+  color: #333333;
+  vertical-align: middle;
+  right: auto;
+  margin-left: 8px;
+}
+@media print, screen and (min-width: 768px) {
+  .form-wrapper #my-form .ninni::after {
+    right: 10px;
+    left: auto;
+  }
+}
+.form-wrapper #my-form .radio-menu > label {
+  display: block;
+  padding: 5px;
+  cursor: pointer;
+}
+.form-wrapper #my-form .radio-menu > label:hover {
+  color: #0a467d;
+}
+.form-wrapper #my-form .radio-menu > label > input {
+  margin-right: 5px;
+  cursor: pointer;
+}
+.form-wrapper #my-form .checkbox-menu {
+  width: 100%;
+}
+.form-wrapper #my-form .checkbox-menu > label {
+  display: block;
+  padding: 5px;
+  cursor: pointer;
+}
+.form-wrapper #my-form .checkbox-menu > label:hover {
+  color: #0a467d;
+}
+.form-wrapper #my-form .checkbox-menu > label > input {
+  margin-right: 5px;
+  cursor: pointer;
+}
+.form-wrapper #my-form .question {
+  display: flex;
+  flex-direction: column;
+  -moz-column-gap: 2px;
+       column-gap: 2px;
+  margin-top: 3px;
+  margin-bottom: 20px;
+  justify-content: center;
+}
+@media print, screen and (min-width: 768px) {
+  .form-wrapper #my-form .question {
+    flex-direction: row;
+    row-gap: 5px;
+  }
+}
+.form-wrapper #my-form .question > p {
+  text-align: left;
+  color: #000;
+  padding: 0.5em;
+  margin-bottom: 3px;
+}
+@media print, screen and (min-width: 768px) {
+  .form-wrapper #my-form .question > p {
+    margin-top: 1em;
+    margin-right: auto;
+    margin-left: 10%;
+  }
+}
+.form-wrapper #my-form .question #robot {
+  margin-left: 2%;
+  margin-right: auto;
+  margin-top: 2px;
+  padding: 0.5em;
+  border: 1px solid #aaaaaa;
+  border-radius: 3px;
+  background: #F5F5F5;
+  font-size: 1em;
+  max-width: 100%;
+  color: #454545;
+  width: 30%;
+}
+@media print, screen and (min-width: 768px) {
+  .form-wrapper #my-form .question #robot {
+    margin-top: 30px;
+    font-size: 15px;
+    width: 20%;
+    height: 2.5em;
+    margin-right: auto;
+    margin-left: 0;
+  }
 }
 
 .service {
   color: #000;
+  margin-top: none;
+}
+.service .service-cont {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  padding-bottom: 40px;
 }
 .service .service-cont .service-list {
   list-style-type: none;
+  padding-left: 10px;
+  flex: 1;
+  text-align: left;
+  vertical-align: middle;
+  font-size: 24px;
+}
+.service .service-cont .service-img {
+  margin: 20px 40px;
+  flex: 1;
+  position: relative;
+  z-index: 0;
   display: flex;
-  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+}
+.service .service-cont .service-img .img-wrap > img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+.service .service-cont .service-img .img-wrap::after {
+  position: absolute;
+  display: block;
+  content: "";
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  transform: rotate(3deg);
+  background: #F5F5F5;
+  z-index: -1;
 }
 .service .service-cont .service-item + .service-item {
   padding-top: 30px;
+}
+
+/* ===========================
+Contact > thanks > index.html 
+お問い合わせフォーム
+============================== */
+/* Top Image 
+============== */
+.thanks-top {
+  background-image: url(../image/laptop.jpg) !important;
+  background-position: center;
+  background-size: cover;
+  height: 400px;
+  position: relative;
+  margin-top: 100px;
+  margin-bottom: 0;
+}
+@media print, screen and (min-width: 768px) {
+  .thanks-top {
+    /* ------------------------------------------
+      url(...)の相対パスはstyle.cssから見たルートで記述
+      -> 実際にスタイルを適用するファイルはstyle.cssだから
+      ------------------------------------------ */
+    background-image: url(../image/laptop.jpg) !important;
+  }
+}
+
+/* thanks message
+==================== */
+.thanks-message {
+  display: block;
+  width: 100%;
+  text-align: center;
+  background-color: #F2F2F2;
+  margin-top: 0;
+}
+.thanks-message .span-thanks {
+  display: inline-block;
+  font-size: 48px;
+  color: #000;
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 15px;
+  padding: 50px 10% 20px;
+}
+.thanks-message p {
+  font-size: 32px;
+  color: #000;
+  text-align: center;
+}
+.thanks-message p .signature {
+  font-size: 24px;
+}
+.thanks-message #page_top_btn {
+  display: inline-block;
+  margin: 20px auto 50px;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  text-align: center;
+  text-decoration: none;
+  background: #e0505d;
+  color: #F5F5F5;
+  cursor: pointer;
 }
 
 .top {
@@ -623,7 +1067,7 @@ main {
   transform: translateY(-50%) translateX(-50%);
   /* 見た目の調整 */
   color: #fff;
-  text-shadow: 0 0 1px #666;
+  text-shadow: 0 0 1px #666666;
 }
 .top-title #top-en {
   font-size: 32px;
@@ -644,6 +1088,7 @@ main {
 
 .works {
   padding-top: 80px;
+  border: 1px solid #fff;
 }
 .masterpiece {
   padding-top: 60px;
@@ -680,7 +1125,7 @@ main {
   z-index: 3;
   transition: all 0.8s ease 0.4s;
   opacity: 0.8;
-  box-shadow: 7px 7px 15px -5px #666;
+  box-shadow: 7px 7px 15px -5px #666666;
   overflow: hidden;
 }
 .masterpiece .mas-slick .slick-slide.slick-current .mas-item {
@@ -797,6 +1242,11 @@ main {
 }
 .masterpiece .cust-wrap {
   padding-top: 40px;
+}
+.masterpiece .cust-list {
+  /* list-style-type: none; を適用した場合，左に余白ができる．
+  この余白を消すためにliタグの親要素にpadding-left: 0;を適用 */
+  padding-left: 0;
 }
 .masterpiece .cust-list .cust-item {
   color: #000;

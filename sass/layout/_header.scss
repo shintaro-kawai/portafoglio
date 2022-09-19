@@ -22,7 +22,8 @@
     z-index: 4;
   }
 
-  /* 三本線(ハンバーガーメニュー) */
+  /* 三本線(ハンバーガーメニュー) 
+  ============================ */
   .nav-btn {
     width: 52px;
     height: 32px;
@@ -69,7 +70,7 @@
       position: absolute;
       width: 100%;
       height: 3px;
-      background-color: b.cl(orange);
+      background-color: b.cl(shadow);
       display: block;
       transition: transform 0.3s ease-in-out;
       right: 0;
@@ -90,13 +91,14 @@
     }
   }
 
-  /* ナビゲーションメニュー*/
+  /* ナビゲーションメニュー
+  ======================= */
   .nav {
     position: fixed;
     left: 0;
     top: 0;
     width: 100%;
-    background-color: b.cl(lightgrey);
+    background-color: rgba(242, 242, 242, 0.8); // b.cl(lightgrey);
     padding-top: 145px;
     z-index: 3;
     opacity: 0; // 最初は透明
