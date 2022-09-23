@@ -16,8 +16,14 @@
     padding: 20px 40px;
     vertical-align: middle;
 
-    h1,
-    p {
+
+    &>h1 {
+      text-align: center;
+      color: b.cl(black);
+      font-family: 'Caveat', cursive;
+    }
+
+    &>p {
       text-align: center;
       color: b.cl(black);
     }

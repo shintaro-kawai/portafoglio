@@ -8,18 +8,25 @@
 
   .service-cont {
     display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center; // ulの中身を上下中央に配置
     padding-bottom: 40px;
+    flex-flow: column wrap;
+
+    @include b.overTab {
+      flex-flow: row wrap;
+      justify-content: space-around;
+      align-items: center; // ulの中身を上下中央に配置
+    }
 
     .service-list {
       list-style-type: none;
-      padding-left: 10px;
       flex: 1;
       text-align: left;
       vertical-align: middle;
-      font-size: 24px;
+      padding-left: 35px;
+
+      @include b.overTab {
+        padding-left: 4.5em; // 60px
+      }
     }
 
     .service-img {
@@ -34,8 +41,8 @@
       .img-wrap {
         &>img {
           object-fit: cover;
-          width: 100%;
-          height: 100%;
+          width: 90%;
+          height: 90%;
         }
 
         &::after {
@@ -49,14 +56,26 @@
           box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
           transform: rotate(3deg);
           background: b.cl(whitecream);
-          z-index: -1;
+          z-index: -1; // imgを囲むdivにはz-indexをつけない
         }
       }
     }
 
     .service-item {
-      +.service-item {
-        padding-top: 30px;
+      font-size: 18px;
+      padding-top: 20px;
+
+      @include b.overTab {
+        font-size: 24px;
+        padding-top: 0;
+      }
+
+      &+.service-item {
+        padding-top: 32px;
+
+        @include b.overTab {
+          padding-top: 30px;
+        }
       }
     }
   }

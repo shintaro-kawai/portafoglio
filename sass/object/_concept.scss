@@ -3,7 +3,6 @@
 .concept {
   padding-top: 80px;
 
-  .inner {}
 
   /* スクロールしていくとフェードインするアニメーション
   --------------------------------------------- */
@@ -24,15 +23,30 @@
 
   /* ----------------------------------------- */
 
-  /* <ul>,<li>を取り消し 
-  => <div>に変えると左の余白が消えて中央寄せにできた */
+  .inner {
+    display: flex;
+    flex-direction: column;
+
+    @include b.overTab {
+      display: block;
+    }
+  }
+
+  /* <ul>,<li> だと微妙に左にスペースができる
+  => list-style-type: none; だけでなく
+  padding-left: 0;    */
   .concept-list {
     padding-top: 60px;
-    // border: 2px solid b.cl(navy); // 検証用ボーダー
+    padding-left: 0; // 黒丸のスペースを消す
+    list-style-type: none;
     display: flex;
-    flex-direction: row; // 横並び
-    justify-content: space-between; // 左端・右端の余白なしで均等配置
+    flex-flow: column wrap;
+    justify-content: space-between;
     align-items: center;
+
+    @include b.overTab {
+      flex-flow: row wrap;
+    }
   }
 
   .concept-item {

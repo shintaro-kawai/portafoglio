@@ -1,9 +1,6 @@
 @use "../foundation/base" as b;
 
 .flow {
-  // margin-bottom: 0;
-  // margin: 0;
-  // border: 0;
   box-sizing: content-box;
   // border: 1px solid b.cl(white); // 検証用
 
@@ -61,16 +58,20 @@
       display: block;
       margin-bottom: 8px;
       color: b.cl(grey);
-      font-size: 48px;
       line-height: 100%;
       font-weight: 500;
+      font-size: 24px;
+
+      @include b.overTab {
+        font-size: 48px;
+      }
     }
 
     .flow-h3 {
       margin-top: 0px;
       margin-bottom: 16px;
       color: b.cl(black);
-      font-size: 48px;
+      font-size: 24px;
       line-height: 120%;
       font-weight: 700;
 

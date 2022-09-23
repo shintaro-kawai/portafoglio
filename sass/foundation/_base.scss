@@ -35,6 +35,7 @@ $colors: (
   f-Blue: #609bff,
   f-Pink: #e95d90,
   f-Grey: #8491a0,
+  dark-grey: #5b6876,
   border-bottom: #EEEEEE,
   border-input:#aaaaaa,
   hissu: #d40000,
@@ -44,6 +45,9 @@ $colors: (
   input: #454545,
   inspect-line: #e0505d,
   whitecream: #F5F5F5,
+  beigecream: #FFF3E4,
+  dull-black: #181823,
+  php: #9999FF,
   ) !default;
 
 @function cl($key) {
