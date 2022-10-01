@@ -101,20 +101,20 @@
     left: 0;
     top: 0;
     width: 100%;
-    background-color: rgba(242, 242, 242, 0.8); // b.cl(lightgrey);
+    background-color: rgba(242, 242, 242, 0.8);
     padding-top: 145px;
     z-index: 3;
-    opacity: 0; // 最初は透明
+    opacity: 0;
     visibility: hidden;
-    transition: opacity 0.3s ease-in-out; // fadeInOutでイージング
+    transition: opacity 0.3s ease-in-out;
 
     @include b.overTab {
       /* PCサイズの場合は常に表示 */
-      width: initial; // 初期値(既定値)
-      background-color: transparent; // 背景を無効(透明)
+      width: initial;
+      background-color: transparent;
       padding-top: 0;
       z-index: 5;
-      left: inherit; // 親要素から継承
+      left: inherit;
       right: 0;
       top: 38px;
       opacity: 1;
