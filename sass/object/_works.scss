@@ -1,8 +1,9 @@
 @use "../foundation/base" as b;
 
 .works {
+  margin-top: 0;
   padding-top: 80px;
-  border: 1px solid b.cl(white); // 検証用
+  border: 1px solid b.cl(white);
 
   .inner {}
 }
@@ -11,8 +12,8 @@
   padding-top: 60px;
 
   .mas-list {
-    margin: 20px 0;
-    padding: 10px 0;
+    margin: 10px 0;
+    padding: 5px 0;
   }
 
   // SLICK ANIMATION
@@ -112,6 +113,7 @@
   .master-dots .slick-dots {
     text-align: center;
     bottom: -26px;
+    margin: 45px auto 100px;
   }
 
   .master-dots .slick-dots li {
@@ -137,7 +139,7 @@
     background: b.cl(navy);
   }
 
-  // ==========================
+  // === slick ==========================
 
   .mas-item {
     display: flex;
@@ -147,27 +149,36 @@
     margin-right: 30px;
     margin-left: 30px;
     z-index: 3;
+    // border: 1px solid b.cl(inspect-line); // inspection
 
     @include b.overTab {
-      margin-left: 10px;
-      margin-right: 10px;
+      margin: 20px auto;
+      // margin-left: 10px;
+      // margin-right: 10px;
       width: 322px;
-      height: 407px;
+      height: auto;
     }
 
     .slide-img {
-      max-width: 50%; //包含ブロックの幅に対する％
+      max-width: 60%; //包含ブロックの幅に対する％
+      margin: 0 auto;
       height: auto;
     }
 
     .text {
+      font-size: 24px;
       background-color: b.cl(white);
-      padding: 20px 20px 50px 20px;
+      padding: 20px 20px 10px 20px;
       border-radius: 0 0 8px 8px;
+      margin: 0 auto;
+      // border: 1px solid b.cl(inspect-line);
+      text-align: center;
     }
 
     .title {
       color: b.cl(text);
+      display: inline-block;
+      text-align: center;
     }
 
     .price {

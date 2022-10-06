@@ -346,6 +346,7 @@ main {
 
 .concept {
   padding-top: 80px;
+  padding-bottom: 20px;
   /* スクロールしていくとフェードインするアニメーション
   --------------------------------------------- */
   /* ----------------------------------------- */
@@ -1635,6 +1636,7 @@ Contact > thanks > index.html
 }
 
 .works {
+  margin-top: 0;
   padding-top: 80px;
   border: 1px solid #fff;
 }
@@ -1645,8 +1647,8 @@ Contact > thanks > index.html
    =============== */
 }
 .masterpiece .mas-list {
-  margin: 20px 0;
-  padding: 10px 0;
+  margin: 10px 0;
+  padding: 5px 0;
 }
 .masterpiece .mas-slick .slick-slide {
   position: relative;
@@ -1731,6 +1733,7 @@ Contact > thanks > index.html
 .masterpiece .master-dots .slick-dots {
   text-align: center;
   bottom: -26px;
+  margin: 45px auto 100px;
 }
 .masterpiece .master-dots .slick-dots li {
   display: inline-block;
@@ -1763,23 +1766,28 @@ Contact > thanks > index.html
 }
 @media print, screen and (min-width: 768px) {
   .masterpiece .mas-item {
-    margin-left: 10px;
-    margin-right: 10px;
+    margin: 20px auto;
     width: 322px;
-    height: 407px;
+    height: auto;
   }
 }
 .masterpiece .mas-item .slide-img {
-  max-width: 50%;
+  max-width: 60%;
+  margin: 0 auto;
   height: auto;
 }
 .masterpiece .mas-item .text {
+  font-size: 24px;
   background-color: #fff;
-  padding: 20px 20px 50px 20px;
+  padding: 20px 20px 10px 20px;
   border-radius: 0 0 8px 8px;
+  margin: 0 auto;
+  text-align: center;
 }
 .masterpiece .mas-item .title {
   color: #333333;
+  display: inline-block;
+  text-align: center;
 }
 .masterpiece .mas-item .price {
   padding-top: 40px;
