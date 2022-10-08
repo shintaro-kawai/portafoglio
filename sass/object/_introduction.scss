@@ -60,11 +60,13 @@
   .hero-image-box {
     height: 25vh; //45vh
     max-height: 864px;
+    // background-color: aquamarine;
     background-image: url(../image/myself_2019.jpg) !important;
+    // border: 1px solid b.cl(inspect-line); //
     background-repeat: no-repeat;
     background-size: cover;
     opacity: 1;
-    z-index: 7;
+    z-index: 7; //7
     background-position: center 20%;
 
     @include b.overTab {
