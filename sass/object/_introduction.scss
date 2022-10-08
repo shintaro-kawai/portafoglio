@@ -60,7 +60,7 @@
   .hero-image-box {
     height: 25vh; //45vh
     max-height: 864px;
-    background-image: url(https://shintaro-kawai.github.io/portafoglio/image/myself_2019.jpg);
+    background-image: url(../image/myself_2019.jpg) !important;
     background-repeat: no-repeat;
     background-size: cover;
     opacity: 1;
@@ -489,7 +489,7 @@
     }
 
     .mid_image {
-      background-image: url(https://shintaro-kawai.github.io/portafoglio/image/Angkor_sunrise.jpg);
+      background-image: url(../image/Angkor_sunrise.jpg) !important;
       background-size: cover;
       background-repeat: no-repeat;
       background-position: center center;
