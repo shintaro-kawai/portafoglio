@@ -995,7 +995,7 @@ main {
 .intro-sec .hero-image-box {
   height: 25vh;
   max-height: 864px;
-  background-image: url(../image/myself_2019.jpg);
+  background-image: url(https://github.com/shintaro-kawai/portafoglio.git/image/myself_2019.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   opacity: 1;
