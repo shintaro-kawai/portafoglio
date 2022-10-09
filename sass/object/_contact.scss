@@ -29,4 +29,111 @@
     }
 
   }
+
+  .sns {
+    width: 100%;
+    text-align: center;
+    display: flex;
+    flex-flow: row wrap;
+    column-gap: 15px;
+    justify-content: center;
+
+    @include b.overTab {
+      column-gap: 25px;
+    }
+  }
+
+  .fa-icon {
+    font-size: 2.0em;
+
+    @include b.overTab {
+      font-size: 2.5em;
+    }
+  }
+
+  .insta_btn {
+    display: inline-block;
+    text-align: center;
+    color: #2e6ca5;
+    text-decoration: none;
+
+    &:hover {
+      color: #668ad8;
+      transition: .5s;
+    }
+
+    .insta {
+      position: relative;
+      display: inline-block;
+      width: 50px;
+      height: 50px;
+      overflow: hidden;
+      border-radius: 13px;
+      background: initial;
+
+      &:hover {
+        background: -webkit-linear-gradient(135deg, #427eff 0%, #f13f79 70%) no-repeat;
+        background: linear-gradient(135deg, #427eff 0%, #f13f79 70%) no-repeat;
+      }
+
+      &::before {
+        content: '';
+        position: absolute;
+        top: 23px; // 23px
+        left: -18px;
+        width: 60px; // 60px
+        height: 50px; // 60px
+        background: initial;
+
+        &:hover {
+          background: -webkit-radial-gradient(#ffdb2c 10%, rgba(255, 105, 34, 0.65) 55%, rgba(255, 88, 96, 0) 70%);
+          background: radial-gradient(#ffdb2c 10%, rgba(255, 105, 34, 0.65) 55%, rgba(255, 88, 96, 0) 70%);
+        }
+      }
+    }
+
+    .fa-instagram {
+      position: relative;
+      z-index: 2;
+      font-size: 40px; // 35px
+      line-height: 50px;
+      color: initial;
+
+      &:hover {
+        color: b.cl(white);
+      }
+    }
+  }
+
+  .fa-twitter {
+    color: initial;
+
+    &:hover {
+      color: b.cl(twitter);
+    }
+  }
+
+  .fa-youtube {
+    color: initial;
+
+    &:hover {
+      color: b.cl(hissu);
+    }
+  }
+
+  .fa-envelope {
+    color: initial;
+
+    &:hover {
+      color: b.cl(bluegreen);
+    }
+  }
+
+  .contact-br {
+    display: inline;
+
+    @include b.overTab {
+      display: none;
+    }
+  }
 }
